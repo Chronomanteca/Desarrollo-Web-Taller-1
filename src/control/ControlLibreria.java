@@ -114,7 +114,7 @@ public class ControlLibreria {
         if(String.valueOf(fecha).length()==4&&fecha<actual){
             return true;
         }
-        System.out.println("ERROR: la fecha ingresada no es valida");
+        System.out.println("ERROR: la fecha ingresada no es valida\n");
         return false;
     }
 
@@ -124,7 +124,7 @@ public class ControlLibreria {
         if(precio>maximo){
             return true;
         }
-        System.out.println("ERROR: la cantidad de "+adjetivo+" debe ser mayor a "+maximo);
+        System.out.println("ERROR: la cantidad de "+adjetivo+" debe ser mayor a "+maximo+"\n");
         return false;
     }
 
@@ -133,7 +133,7 @@ public class ControlLibreria {
         if(cadena.length()>=minimo && cadena.length()<=maximo){
             return true;
         }
-        System.out.println("ERROR: la entrada debe tener entre: "+minimo+" y "+maximo+"caracteres");
+        System.out.println("ERROR: la entrada debe tener entre: "+minimo+" y "+maximo+"caracteres\n");
         return false;
     }
 
@@ -160,12 +160,12 @@ public class ControlLibreria {
         Autor aut = new Autor();
         String entrada;
 
-        System.out.println("Ingrese el nombre completo del autor");
+        System.out.println("\nIngrese el nombre completo del autor");
         entrada = input.nextLine();
         aut.setNombre(entrada);
 
         if(!this.registro.containsKey(entrada)){
-            System.out.println("El autor ingresado no tiene titulos registrados");
+            System.out.println("\nl autor ingresado no tiene titulos registrados\n");
             return false;
         }
         listarLibrosAutor(entrada);
@@ -198,12 +198,19 @@ public class ControlLibreria {
         Scanner input = new Scanner(System.in);
         String entrada;
 
-        System.out.println("Ingrese el titulo del libro a buscar");
+        System.out.println("\nIngrese el titulo del libro a buscar");
         entrada = input.nextLine();
 
         if(!buscarLibro(entrada)){
-            System.out.println("No se encontro el libro ingresado en los registros");
+            System.out.println("\nNo se encontro el libro ingresado en los registros\n");
         }
+    }
+
+    public void ayuda(){
+        System.out.println("\ncrear ------ permite crear un libro agregando la informacion basica del mismo"+"\n"+
+                "detallar ------ permite obtener la informacion detallada de un libro especificado"+"\n"+
+                "listar ------ despliega la lista de libros guardada en el registro de la libreria"+ "\n"+
+                "salir ------ cierra el programa de la libreria");
     }
 
 
