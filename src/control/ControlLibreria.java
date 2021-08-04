@@ -3,6 +3,28 @@ import model.*;
 
 import java.util.*;
 
+
+/*
+Clase ControlLibreria.
+---descripcion---
+Controlador encargado de gestionar los registros de la libreria
+---parametros---
+libros:Libro - libro para almacenar en el mapa
+autores:Autor - autor del libro ingresado
+registro:HashMap<String, ArrayList<Libro>> - mapa que toma como llave el nombre completo del autor, y almacena como valor la lista de libros escritos por el mismo.
+---metodos relevantes---
+crearLibro():Libro - Se encarga de tomar los datos del libro y retornar un objeto nuevo de tipo Libro
+crearAutor():Autor - Se encarga de tomar el nombre y apellido de un autor y retornar un objeto nuevo de tipo Autor
+verificarFecha(Integer fecha):boolean - Valida si la fecha ingresada cumple con las restricciones establecidas
+verificarValor(Integer precio, Integer maximo, String sustantivo):boolean - valida si un valor numerico se encuentra dentro del rango deseado e imprime el nombre de dicho valor
+verificarLongitudCadena(Integer maximo, Integer minimo, String cadena):boolean - valida si una cadena esta dentro del rango establecido
+agregarRegistro(Autor aut):void - agrega el autor deseado al mapa de registro
+buscarAutor():void - obtiene la informacion de un autor y lo busca en el registro
+listarLibrosAutor(String aut):void - imprime los libros escritos por un autor acorde al registro
+buscarLibro(String titulo):boolean - busca un libro a partir de su titulo en la lista de libros de cada autor del mapa.
+detallar():void - permite ingresar el titulo de un libro y obtener informacion detallada del mismo.
+ayuda():void - imprime informacion de ayuda sobre las entradas del menu de la libreria
+ */
 public class ControlLibreria {
 
     private Libro libros;
@@ -119,12 +141,12 @@ public class ControlLibreria {
     }
 
 
-    public boolean verificarValor(Integer precio, Integer maximo, String adjetivo){
+    public boolean verificarValor(Integer precio, Integer maximo, String sustantivo){
 
         if(precio>maximo){
             return true;
         }
-        System.out.println("ERROR: la cantidad de "+adjetivo+" debe ser mayor a "+maximo+"\n");
+        System.out.println("ERROR: la cantidad de "+sustantivo+" debe ser mayor a "+maximo+"\n");
         return false;
     }
 
@@ -141,17 +163,6 @@ public class ControlLibreria {
     public void agregarRegistro(Autor aut){
 
         this.registro.put(aut.toString(),aut.getLibro());
-    }
-
-    public void listarLibros(){
-
-        for(Map.Entry<String,ArrayList<Libro>> m : this.registro.entrySet()){
-            System.out.println("Autor: "+ m.getKey().toString());
-            System.out.println("size: "+m.getValue().size());
-            for(Libro l: m.getValue()){
-                System.out.println( l.getTitulo());
-            }
-        }
     }
 
     public boolean buscarAutor(){
@@ -206,12 +217,7 @@ public class ControlLibreria {
         }
     }
 
-    public void ayuda(){
-        System.out.println("\ncrear ------ permite crear un libro agregando la informacion basica del mismo"+"\n"+
-                "detallar ------ permite obtener la informacion detallada de un libro especificado"+"\n"+
-                "listar ------ despliega la lista de libros guardada en el registro de la libreria"+ "\n"+
-                "salir ------ cierra el programa de la libreria");
-    }
+
 
 
 }

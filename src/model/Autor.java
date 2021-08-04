@@ -1,7 +1,16 @@
 package model;
 
 import java.util.ArrayList;
-
+/*
+Clase Autor.
+---descripcion---
+Clase que describe a un autor
+---parametros---
+nombre:String - Nombre del autor
+apellido:String - Apellido del autor
+---metodos relevantes---
+N.A
+ */
 public class Autor {
 
     private ArrayList<Libro> libro = new ArrayList<>();

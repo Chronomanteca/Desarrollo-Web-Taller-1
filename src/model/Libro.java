@@ -1,6 +1,18 @@
 package model;
 
-
+/*
+Clase Libro.
+---descripcion---
+Clase que describe a un libro
+---parametros---
+titulo:String -  titulo del libro
+descripcion:String -  descripcion del libro
+price:Integer - precio del libro
+publicacion:Integer - año de publicacion del libro
+paginas:Integer - cantidad de paginas del libro
+---metodos relevantes---
+N.A
+ */
 public class Libro {
 
     private String titulo;
